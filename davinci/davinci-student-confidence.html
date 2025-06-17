@@ -37,154 +37,161 @@
 
             // Data manually extracted from the provided image.
             const allSkillsData = {
-              "Ability to scientifically interpret results and observations": [
-                { rating: "1 (Low)", Before: 0, After: 1 },
-                { rating: "2", Before: 0, After: 21 },
-                { rating: "3", Before: 24, After: 6 },
-                { rating: "4", Before: 50, After: 47 },
-                { rating: "5 (High)", Before: 14, After: 35 }
-              ],
-              "Analysis of IR": [
-                { rating: "1 (Low)", Before: 0, After: 0 },
-                { rating: "2", Before: 7, After: 2 },
-                { rating: "3", Before: 42, After: 8 },
-                { rating: "4", Before: 26, After: 43 },
-                { rating: "5 (High)", Before: 14, After: 35 }
-              ],
-              "Analysis of UV/vis spectra": [
-                { rating: "1 (Low)", Before: 2, After: 1 },
-                { rating: "2", Before: 134, After: 2 },
-                { rating: "3", Before: 37, After: 12 },
-                { rating: "4", Before: 32, After: 46 },
-                { rating: "5 (High)", Before: 6, After: 25 }
-              ],
-              "Be able to work well as part of a team": [
-                { rating: "1 (Low)", Before: 3, After: 1 },
-                { rating: "2", Before: 20, After: 0 },
-                { rating: "3", Before: 30, After: 4 },
-                { rating: "4", Before: 36, After: 31 },
-                { rating: "5 (High)", Before: 39, After: 54 }
-              ],
-              "Consider the provided COSHH assessment": [
-                { rating: "1 (Low)", Before: 0, After: 1 },
-                { rating: "2", Before: 0, After: 0 },
-                { rating: "3", Before: 0, After: 4 },
-                { rating: "4", Before: 48, After: 24 },
-                { rating: "5 (High)", Before: 40, After: 60 }
-              ],
-              "Evaluation of experimental data quality": [
-                { rating: "1 (Low)", Before: 1, After: 0 },
-                { rating: "2", Before: 3, After: 1 },
-                { rating: "3", Before: 30, After: 12 },
-                { rating: "4", Before: 38, After: 43 },
-                { rating: "5 (High)", Before: 16, After: 31 }
-              ],
-              "Follow experimental instructions accurately": [
-                { rating: "1 (Low)", Before: 0, After: 1 },
-                { rating: "2", Before: 2, After: 1 },
-                { rating: "3", Before: 9, After: 7 },
-                { rating: "4", Before: 44, After: 31 },
-                { rating: "5 (High)", Before: 33, After: 51 }
-              ],
-              "Plan & devise experiments": [
-                { rating: "1 (Low)", Before: 8, After: 0 },
-                { rating: "2", Before: 7, After: 11 },
-                { rating: "3", Before: 28, After: 14 },
-                { rating: "4", Before: 28, After: 41 },
-                { rating: "5 (High)", Before: 10, After: 26 }
-              ],
-              "Plan & organise time to perform experiments efficiently": [
-                { rating: "1 (Low)", Before: 0, After: 1 },
-                { rating: "2", Before: 6, After: 2 },
-                { rating: "3", Before: 16, After: 10 },
-                { rating: "4", Before: 48, After: 40 },
-                { rating: "5 (High)", Before: 20, After: 37 }
-              ],
-              "Problem solving skills": [
-                { rating: "1 (Low)", Before: 1, After: 1 },
-                { rating: "2", Before: 1, After: 0 },
-                { rating: "3", Before: 14, After: 6 },
-                { rating: "4", Before: 50, After: 53 },
-                { rating: "5 (High)", Before: 23, After: 30 }
-              ],
-              "Proper disposal of chemicals": [
-                { rating: "1 (Low)", Before: 0, After: 1 },
-                { rating: "2", Before: 2, After: 6 },
-                { rating: "3", Before: 18, After: 2 },
-                { rating: "4", Before: 46, After: 29 },
-                { rating: "5 (High)", Before: 20, After: 55 }
-              ],
-              "Record a good quality IR spectrum": [
-                { rating: "1 (Low)", Before: 0, After: 0 },
-                { rating: "2", Before: 8, After: 1 },
-                { rating: "3", Before: 34, After: 9 },
-                { rating: "4", Before: 36, After: 48 },
-                { rating: "5 (High)", Before: 12, After: 31 }
-              ],
-              "Record a good quality UV-vis spectrum": [
-                { rating: "1 (Low)", Before: 0, After: 0 },
-                { rating: "2", Before: 11, After: 1 },
-                { rating: "3", Before: 28, After: 18 },
-                { rating: "4", Before: 38, After: 42 },
-                { rating: "5 (High)", Before: 13, After: 23 }
-              ],
-              "Recrystallisation": [
-                { rating: "1 (Low)", Before: 0, After: 0 },
-                { rating: "2", Before: 1, After: 3 },
-                { rating: "3", Before: 16, After: 11 },
-                { rating: "4", Before: 48, After: 47 },
-                { rating: "5 (High)", Before: 24, After: 25 }
-              ],
-              "Solvent extraction (use of a separatory funnel)": [
-                { rating: "1 (Low)", Before: 0, After: 0 },
-                { rating: "2", Before: 2, After: 1 },
-                { rating: "3", Before: 22, After: 8 },
-                { rating: "4", Before: 37, After: 39 },
-                { rating: "5 (High)", Before: 36, After: 45 }
-              ],
-              "Use of reflux apparatus": [
-                { rating: "1 (Low)", Before: 0, After: 0 },
-                { rating: "2", Before: 1, After: 1 },
-                { rating: "3", Before: 18, After: 16 },
-                { rating: "4", Before: 41, After: 47 },
-                { rating: "5 (High)", Before: 30, After: 24 }
-              ],
-              "Use significant figures properly": [
-                { rating: "1 (Low)", Before: 0, After: 1 },
-                { rating: "2", Before: 0, After: 0 },
-                { rating: "3", Before: 14, After: 5 },
-                { rating: "4", Before: 32, After: 27 },
-                { rating: "5 (High)", Before: 44, After: 53 }
-              ],
-              "Use Thin Layer Chromatography (TLC)": [
-                { rating: "1 (Low)", Before: 1, After: 0 },
-                { rating: "2", Before: 23, After: 3 },
-                { rating: "3", Before: 37, After: 15 },
-                { rating: "4", Before: 21, After: 45 },
-                { rating: "5 (High)", Before: 1, After: 25 }
-              ],
-              "Use units properly": [
-                { rating: "1 (Low)", Before: 0, After: 1 },
-                { rating: "2", Before: 11, After: 8 },
-                { rating: "3", Before: 11, After: 1 },
-                { rating: "4", Before: 33, After: 31 },
-                { rating: "5 (High)", Before: 45, After: 46 }
-              ],
-              "Vacuum filtration": [
-                { rating: "1 (Low)", Before: 0, After: 0 },
-                { rating: "2", Before: 5, After: 1 },
-                { rating: "3", Before: 19, After: 6 },
-                { rating: "4", Before: 57, After: 28 },
-                { rating: "5 (High)", Before: 9, After: 47 }
-              ],
-              "Volumetric methods": [
-                { rating: "1 (Low)", Before: 0, After: 0 },
-                { rating: "2", Before: 1, After: 4 },
-                { rating: "3", Before: 34, After: 16 },
-                { rating: "4", Before: 34, After: 40 },
-                { rating: "5 (High)", Before: 7, After: 31 }
-              ]
-            };
+                  "Ability to scientifically interpret results and observations.": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 1 },
+                    { "rating": "2", "Before": 2, "After": 1 },
+                    { "rating": "3", "Before": 24, "After": 6 },
+                    { "rating": "4", "Before": 50, "After": 47 },
+                    { "rating": "5 (High)", "Before": 14, "After": 35 }
+                  ],
+                  "Analysis of IR": [
+                    { "rating": "1 (Low)", "Before": 1, "After": 0 },
+                    { "rating": "2", "Before": 7, "After": 2 },
+                    { "rating": "3", "Before": 42, "After": 8 },
+                    { "rating": "4", "Before": 26, "After": 43 },
+                    { "rating": "5 (High)", "Before": 14, "After": 35 }
+                  ],
+                  "Analysis of UV/vis spectra": [
+                    { "rating": "1 (Low)", "Before": 2, "After": 1 },
+                    { "rating": "2", "Before": 13, "After": 3 },
+                    { "rating": "3", "Before": 37, "After": 12 },
+                    { "rating": "4", "Before": 42, "After": 45 },
+                    { "rating": "5 (High)", "Before": 6, "After": 25 }
+                  ],
+                  "Be able to work well as part of a team": [
+                    { "rating": "1 (Low)", "Before": 3, "After": 1 },
+                    { "rating": "2", "Before": 2, "After": 0 },
+                    { "rating": "3", "Before": 10, "After": 4 },
+                    { "rating": "4", "Before": 36, "After": 31 },
+                    { "rating": "5 (High)", "Before": 39, "After": 54 }
+                  ],
+                  "Consider the provided COSHH assessment and perform experiments safely within the guidelines provided": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 1 },
+                    { "rating": "2", "Before": 1, "After": 0 },
+                    { "rating": "3", "Before": 1, "After": 4 },
+                    { "rating": "4", "Before": 48, "After": 24 },
+                    { "rating": "5 (High)", "Before": 40, "After": 60 }
+                  ],
+                  "Evaluation of experimental data quality": [
+                    { "rating": "1 (Low)", "Before": 2, "After": 0 },
+                    { "rating": "2", "Before": 4, "After": 1 },
+                    { "rating": "3", "Before": 30, "After": 12 },
+                    { "rating": "4", "Before": 38, "After": 43 },
+                    { "rating": "5 (High)", "Before": 16, "After": 31 }
+                  ],
+                  "Follow experimental instructions accurately": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 1 },
+                    { "rating": "2", "Before": 2, "After": 1 },
+                    { "rating": "3", "Before": 9, "After": 7 },
+                    { "rating": "4", "Before": 45, "After": 30 },
+                    { "rating": "5 (High)", "Before": 33, "After": 51 }
+                  ],
+                  "Plan & devise experiments": [
+                    { "rating": "1 (Low)", "Before": 8, "After": 1 },
+                    { "rating": "2", "Before": 16, "After": 6 },
+                    { "rating": "3", "Before": 28, "After": 14 },
+                    { "rating": "4", "Before": 28, "After": 41 },
+                    { "rating": "5 (High)", "Before": 10, "After": 26 }
+                  ],
+                  "Plan & organise time to perform experiments efficiently in the available time.": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 1 },
+                    { "rating": "2", "Before": 6, "After": 2 },
+                    { "rating": "3", "Before": 16, "After": 10 },
+                    { "rating": "4", "Before": 48, "After": 40 },
+                    { "rating": "5 (High)", "Before": 20, "After": 37 }
+                  ],
+                  "Problem solving skills": [
+                    { "rating": "1 (Low)", "Before": 2, "After": 1 },
+                    { "rating": "2", "Before": 1, "After": 0 },
+                    { "rating": "3", "Before": 14, "After": 6 },
+                    { "rating": "4", "Before": 50, "After": 53 },
+                    { "rating": "5 (High)", "Before": 23, "After": 30 }
+                  ],
+                  "Proper disposal of chemicals (including organic solvents)": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 1 },
+                    { "rating": "2", "Before": 6, "After": 4 },
+                    { "rating": "3", "Before": 18, "After": 8 },
+                    { "rating": "4", "Before": 46, "After": 29 },
+                    { "rating": "5 (High)", "Before": 20, "After": 54 }
+                  ],
+                  "Record a good quality IR spectrum": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 0 },
+                    { "rating": "2", "Before": 8, "After": 1 },
+                    { "rating": "3", "Before": 34, "After": 9 },
+                    { "rating": "4", "Before": 36, "After": 48 },
+                    { "rating": "5 (High)", "Before": 12, "After": 31 }
+                  ],
+                  "Record a good quality UV-vis spectrum": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 0 },
+                    { "rating": "2", "Before": 11, "After": 3 },
+                    { "rating": "3", "Before": 28, "After": 18 },
+                    { "rating": "4", "Before": 38, "After": 42 },
+                    { "rating": "5 (High)", "Before": 13, "After": 29 }
+                  ],
+                  "Recrystallisation": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 0 },
+                    { "rating": "2", "Before": 2, "After": 4 },
+                    { "rating": "3", "Before": 16, "After": 11 },
+                    { "rating": "4", "Before": 48, "After": 47 },
+                    { "rating": "5 (High)", "Before": 24, "After": 25 }
+                  ],
+                  "Solvent extraction (use of a separatory funnel)": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 0 },
+                    { "rating": "2", "Before": 2, "After": 2 },
+                    { "rating": "3", "Before": 15, "After": 8 },
+                    { "rating": "4", "Before": 37, "After": 39 },
+                    { "rating": "5 (High)", "Before": 36, "After": 47 }
+                  ],
+                  "Use of Good Chemistry Laboratory Practice (GCLP)": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 1 },
+                    { "rating": "2", "Before": 0, "After": 0 },
+                    { "rating": "3", "Before": 11, "After": 0 },
+                    { "rating": "4", "Before": 39, "After": 36 },
+                    { "rating": "5 (High)", "Before": 39, "After": 63 }
+                  ],
+                  "Use of reflux apparatus": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 0 },
+                    { "rating": "2", "Before": 1, "After": 1 },
+                    { "rating": "3", "Before": 18, "After": 16 },
+                    { "rating": "4", "Before": 41, "After": 47 },
+                    { "rating": "5 (High)", "Before": 30, "After": 24 }
+                  ],
+                  "Use significant figures properly": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 1 },
+                    { "rating": "2", "Before": 0, "After": 2 },
+                    { "rating": "3", "Before": 14, "After": 8 },
+                    { "rating": "4", "Before": 32, "After": 30 },
+                    { "rating": "5 (High)", "Before": 44, "After": 53 }
+                  ],
+                  "Use Thin Layer Chromatography (TLC) to identify mixture composition.": [
+                    { "rating": "1 (Low)", "Before": 1, "After": 0 },
+                    { "rating": "2", "Before": 6, "After": 1 },
+                    { "rating": "3", "Before": 26, "After": 8 },
+                    { "rating": "4", "Before": 36, "After": 32 },
+                    { "rating": "5 (High)", "Before": 21, "After": 49 }
+                  ],
+                  "Use units properly": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 1 },
+                    { "rating": "2", "Before": 1, "After": 2 },
+                    { "rating": "3", "Before": 11, "After": 10 },
+                    { "rating": "4", "Before": 33, "After": 31 },
+                    { "rating": "5 (High)", "Before": 45, "After": 46 }
+                  ],
+                  "Vacuum filtration": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 0 },
+                    { "rating": "2", "Before": 0, "After": 1 },
+                    { "rating": "3", "Before": 5, "After": 12 },
+                    { "rating": "4", "Before": 19, "After": 28 },
+                    { "rating": "5 (High)", "Before": 46, "After": 47 }
+                  ],
+                  "Volumetric methods (prepare standard solutions accurately & precisely)": [
+                    { "rating": "1 (Low)", "Before": 0, "After": 0 },
+                    { "rating": "2", "Before": 4, "After": 0 },
+                    { "rating": "3", "Before": 20, "After": 16 },
+                    { "rating": "4", "Before": 47, "After": 40 },
+                    { "rating": "5 (High)", "Before": 19, "After": 31 }
+                  ]
+                };
 
 
             const skillOptions = Object.keys(allSkillsData);
