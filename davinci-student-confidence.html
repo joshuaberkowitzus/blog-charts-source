@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Confidence Chart | Embed</title>
+    
+    <!-- 1. Load Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 2. Load Core React Libraries (Using React 17 for compatibility) -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin=""></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin=""></script>
+    
+    <!-- FIX: Load prop-types library to fix compatibility issue between React 17 and older Recharts -->
+    <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+    
+    <!-- 3. Load Babel to transpile JSX directly in the browser (User-provided URL) -->
+    <script src="https://unpkg.com/@babel/standalone@7.27.6/babel.min.js"></script>
+
+    <!-- 4. Load the specific version of the Recharts library (User-provided URL) -->
+    <script src="https://unpkg.com/recharts@1.6.2/umd/Recharts.min.js"></script>
+
+</head>
+<body class="bg-slate-50">
+
+    <!-- 5. This is the "root" element where your React app will be rendered. -->
+    <div id="root"></div>
+
+    <!-- 6. This script contains your React application code. -->
+    <script type="text/babel">
+        // This function will contain the main application logic.
+        const renderApp = () => {
+            // Destructure components from the global Recharts object.
+            const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } = window.Recharts;
+            const { useState } = React;
+
+            // Data manually extracted from the provided image.
+            const allSkillsData = {
+              "Analysis of IR": [
+                { rating: "1 (Low)", Before: 7, After: 0 },
+                { rating: "2", Before: 42, After: 8 },
+                { rating: "3", Before: 26, After: 43 },
+                { rating: "4", Before: 14, After: 35 },
+                { rating: "5 (High)", Before: 0, After: 5 },
+              ],
+              "Evaluation of experimental data quality": [
+                { rating: "1 (Low)", Before: 5, After: 0 },
+                { rating: "2", Before: 30, After: 5 },
+                { rating: "3", Before: 38, After: 38 },
+                { rating: "4", Before: 16, After: 40 },
+                { rating: "5 (High)", Before: 0, After: 2 },
+              ],
+              "Record a good quality IR spectrum": [
+                { rating: "1 (Low)", Before: 8, After: 0 },
+                { rating: "2", Before: 34, After: 9 },
+                { rating: "3", Before: 35, After: 48 },
+                { rating: "4", Before: 12, After: 31 },
+                { rating: "5 (High)", Before: 0, After: 3 },
+              ],
+              "Solvent extraction (use of a separatory funnel)": [
+                { rating: "1 (Low)", Before: 2, After: 0 },
+                { rating: "2", Before: 14, After: 2 },
+                { rating: "3", Before: 38, After: 39 },
+                { rating: "4", Before: 36, After: 45 },
+                { rating: "5 (High)", Before: 1, After: 5 },
+              ],
+              "Use Thin Layer Chromatography (TLC)": [
+                { rating: "1 (Low)", Before: 5, After: 0 },
+                { rating: "2", Before: 25, After: 8 },
+                { rating: "3", Before: 36, After: 32 },
+                { rating: "4", Before: 21, After: 49 },
+                { rating: "5 (High)", Before: 0, After: 2 },
+              ],
+              "Ability to scientifically interpret results": [
+                { rating: "1 (Low)", Before: 2, After: 0 },
+                { rating: "2", Before: 23, After: 6 },
+                { rating: "3", Before: 50, After: 47 },
+                { rating: "4", Before: 14, After: 33 },
+                { rating: "5 (High)", Before: 0, After: 1 },
+              ],
+              "Work well as part of a team": [
+                { rating: "1 (Low)", Before: 2, After: 0 },
+                { rating: "2", Before: 10, After: 3 },
+                { rating: "3", Before: 37, After: 28 },
+                { rating: "4", Before: 39, After: 54 },
+                { rating: "5 (High)", Before: 1, After: 5 },
+              ],
+              "Follow experimental instructions accurately": [
+                { rating: "1 (Low)", Before: 1, After: 0 },
+                { rating: "2", Before: 9, After: 2 },
+                { rating: "3", Before: 45, After: 28 },
+                { rating: "4", Before: 31, After: 52 },
+                { rating: "5 (High)", Before: 2, After: 8 },
+              ],
+              "Plan & devise experiments": [
+                { rating: "1 (Low)", Before: 7, After: 8 },
+                { rating: "2", Before: 25, After: 15 },
+                { rating: "3", Before: 28, After: 25 },
+                { rating: "4", Before: 10, After: 23 },
+                { rating: "5 (High)", Before: 1, After: 2 },
+              ],
+              "Plan & organise time efficiently": [
+                { rating: "1 (Low)", Before: 3, After: 0 },
+                { rating: "2", Before: 16, After: 10 },
+                { rating: "3", Before: 48, After: 41 },
+                { rating: "4", Before: 20, After: 38 },
+                { rating: "5 (High)", Before: 1, After: 2 },
+              ],
+              "Problem solving skills": [
+                { rating: "1 (Low)", Before: 2, After: 0 },
+                { rating: "2", Before: 13, After: 2 },
+                { rating: "3", Before: 50, After: 25 },
+                { rating: "4", Before: 22, After: 53 },
+                { rating: "5 (High)", Before: 1, After: 10 },
+              ],
+            };
+
+            const skillOptions = Object.keys(allSkillsData);
+
+            // Custom Tooltip for better display
+            const CustomTooltip = ({ active, payload, label }) => {
+              if (active && payload && payload.length) {
+                return (
+                  <div className="bg-white/80 backdrop-blur-sm p-3 border border-gray-300 rounded-lg shadow-lg">
+                    <p className="font-bold text-gray-800">{`Rating: ${label}`}</p>
+                    <p style={{ color: '#0ea5e9' }}>{`Before: ${payload[0].value}%`}</p>
+                    <p style={{ color: '#a855f7' }}>{`After: ${payload[1].value}%`}</p>
+                  </div>
+                );
+              }
+              return null;
+            };
+
+            // This is the main App component.
+            function App() {
+              const [selectedSkill, setSelectedSkill] = useState(skillOptions[0]);
+              const handleSkillChange = (event) => setSelectedSkill(event.target.value);
+              const chartData = allSkillsData[selectedSkill];
+
+              return (
+                <div className="bg-slate-50 font-sans w-full min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
+                  <div className="w-full max-w-4xl bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                      <div className="mb-4 md:mb-0">
+                        <h1 className="text-2xl md:text-3xl font-bold text-slate-800">Student Confidence Analysis</h1>
+                        <p className="text-slate-500 mt-1">Comparing confidence ratings before and after intervention.</p>
+                      </div>
+                      <div className="w-full md:w-auto">
+                        <label htmlFor="skill-select" className="sr-only">Select a skill</label>
+                        <select
+                          id="skill-select"
+                          value={selectedSkill}
+                          onChange={handleSkillChange}
+                          className="w-full md:w-72 p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-shadow bg-white text-slate-700"
+                        >
+                          {skillOptions.map(skill => (
+                            <option key={skill} value={skill}>{skill}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div className="w-full h-[450px] md:h-[500px] mt-4">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart
+                          data={chartData}
+                          margin={{ top: 5, right: 20, left: 10, bottom: 40, }}
+                          barGap={4}
+                        >
+                          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
+                          <XAxis dataKey="rating" tick={{ fill: '#64748b' }} stroke="#94a3b8" tickMargin={10}>
+                              <Label value="Student Confidence Rating" offset={-30} position="insideBottom" fill="#475569" />
+                          </XAxis>
+                          <YAxis tick={{ fill: '#64748b' }} stroke="#94a3b8" tickMargin={5} label={{ value: 'Percentage of Responses', angle: -90, position: 'insideLeft', fill: '#475569', dx: -10 }} domain={[0, 60]} />
+                          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(238, 242, 255, 0.6)' }} />
+                          <Legend verticalAlign="top" align="right" wrapperStyle={{ paddingBottom: '20px' }} />
+                          <Bar dataKey="Before" fill="#0ea5e9" name="Before Intervention" radius={[4, 4, 0, 0]} barSize={30} />
+                          <Bar dataKey="After" fill="#a855f7" name="After Intervention" radius={[4, 4, 0, 0]} barSize={30} />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
+                   <footer className="text-center mt-6 text-sm text-slate-500">
+                    <p>Data extracted from user-provided image. Values are estimates.</p>
+                  </footer>
+                </div>
+              );
+            }
+
+            // Render the App component into the 'root' div using the legacy React 17 API for compatibility.
+            ReactDOM.render(<App />, document.getElementById('root'));
+        };
+
+        // Actively check for the libraries before rendering the app.
+        const checkInterval = setInterval(() => {
+            if (window.Recharts && window.React && window.ReactDOM && window.PropTypes) {
+                clearInterval(checkInterval); // Stop checking once libraries are found.
+                renderApp(); // Render the application.
+            }
+        }, 100); // Check every 100 milliseconds.
+
+    </script>
+</body>
+</html>
